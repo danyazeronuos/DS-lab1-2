@@ -24,22 +24,5 @@ public class Main {
 
         System.out.println();
 
-        var manager = switch (strategy) {
-            case 1 -> new FutureThreadManager(threads);
-            default -> new StandardThreadManager(threads);
-        };
-
-        var calculator = new IntegralCalculator(manager);
-        var function = new MyFunction();
-        try {
-            var start = Instant.now();
-            var result = calculator.calculate(a,  b, n, function);
-            var end = Instant.now();
-            System.out.println("Result: " + result);
-            var duration = Duration.between(start, end);
-            System.out.println("Duration: " + duration.toMillis());
-        } catch (Exception e) {
-            System.out.println("Threads error");
-        }
     }
 }

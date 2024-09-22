@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zero.HelloController" spacing="10" alignment="center">
+
+
+    <VBox spacing="5">
+        <Label text="Text Input 1:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="textInput1" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    </VBox>
+
+    <!-- Second text input -->
+
+    <VBox spacing="5">
+        <Label text="Text Input 2:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="textInput2" text="1.0471975511965976" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </VBox>
+
+    <!-- Third text input -->
+    <VBox spacing="5">
+        <Label text="Text Input 3:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="textInput3" text="2147483647" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </VBox>
+
+    <!-- First combo box (select box) for threads 1 to 8 -->
+    <VBox spacing="5">
+        <Label text="Select Threads:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="numberOfThreadsSelection" value="threads {1}" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="threads {1}"/>
+                    <String fx:value="threads {2}"/>
+                    <String fx:value="threads {3}"/>
+                    <String fx:value="threads {4}"/>
+                    <String fx:value="threads {5}"/>
+                    <String fx:value="threads {6}"/>
+                    <String fx:value="threads {7}"/>
+                    <String fx:value="threads {8}"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </VBox>
+
+    <!-- Second combo box (select box) for new Thread or CompletableFuture -->
+    <VBox spacing="5">
+        <Label text="Execution Strategy Type:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <ComboBox fx:id="executionStrategySelect" value="0. new Thread()" GridPane.columnIndex="1"
+                  GridPane.rowIndex="4">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="0. new Thread()"/>
+                    <String fx:value="1. CompletableFuture"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </VBox>
+
+
+    <HBox>
+        <Button onAction="#calculate">Calculate!</Button>
+        <Button onAction="#clear">Clear!</Button>
+    </HBox>
+
+    <ListView fx:id="resultListView">
+
+    </ListView>
+
+</VBox>
